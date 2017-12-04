@@ -1,0 +1,83 @@
+<% if false %>
+code to comment
+<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Tests</h1>
+
+<table class="table table-sm table-hover">
+  <thead class="thead-dark">
+    <tr class="row">
+      <th class="col-md-2">Action</th>
+      <th class="col-md-1">#</th>
+      <th class="col-md-3">Password</th>
+      <th class="col-md-3">Email</th>
+      <th class="col-md-3">Memo</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tests.each_with_index do |test, index| %>
+      <tr class="row">
+        <th class="col-md-2">
+          <%= link_to test, :class => "btn btn-outline-success btn-sm" do %>
+          <i class="fa fa-file-text fa-lg"></i> Show
+          <% end %>
+          <%= link_to edit_test_path(test), :class => "btn btn-outline-primary btn-sm" do %>
+          <i class="fa fa-pencil fa-lg"></i> Edit
+          <% end %>
+          <%= link_to test, :class => "btn btn-outline-danger btn-sm", method: :delete, data: { confirm: 'Delete Record. Are you sure?' } do %>
+          <i class="fa fa-trash-o fa-lg"></i> Delete
+          <% end %>          
+        </th>
+        <td class="col-md-1"><%= index + 1 %></td>
+        <td class="col-md-3"><%= test.password %></td>
+        <td class="col-md-3"><%= test.email %></td>
+        <td class="col-md-3"><%= test.memo %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Test', new_test_path, :class => "btn btn-primary btn-sm" %>
+<br>
+<br>
+
+
+  <h2>Basic Table</h2>
+<table class="table table-sm table-hover">
+  <thead class="thead-dark">
+    <tr class="row">
+      <th class="col-md-2 align-middle">Action</th>
+      <th class="col-md-1 align-middle">#</th>
+      <th class="col-md-3 align-middle">Password</th>
+      <th class="col-md-3 align-middle">Email</th>
+      <th class="col-md-3 align-middle">Memo</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tests.each_with_index do |test, index| %>
+      <tr class="row">
+        <td class="col-md-2 align-middle">
+          <%= link_to test, :class => "btn btn-outline-success btn-sm" do %>
+          <i class="fa fa-file-text fa-lg"></i> Show
+          <% end %>&nbsp;
+          <%= link_to edit_test_path(test), :class => "btn btn-outline-primary btn-sm" do %>
+          <i class="fa fa-pencil fa-lg"></i> Edit
+          <% end %>&nbsp;
+          <%= link_to test, :class => "btn btn-outline-danger btn-sm", method: :delete, data: { confirm: 'Delete Record. Are you sure?' } do %>
+          <i class="fa fa-trash-o fa-lg"></i> Delete
+          <% end %>          
+        </td>
+        <td class="col-md-1 align-middle"><%= index + 1 %></td>
+        <td class="col-md-3 align-middle"><%= test.password %></td>
+        <td class="col-md-3 align-middle"><%= test.email %></td>
+        <td class="col-md-3 align-middle"><%= test.memo %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
